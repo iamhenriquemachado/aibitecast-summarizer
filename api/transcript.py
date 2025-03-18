@@ -1,5 +1,4 @@
 from google import genai
-import json
 import re
 from dotenv import load_dotenv
 import os
