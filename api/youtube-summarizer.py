@@ -87,4 +87,4 @@ def read_root():
 # Start server
 if __name__ == "__main__":
     import uvicorn 
-    uvicorn.run("app:app", host="127.0.0.1", port=8001, reload=True)
+    uvicorn.run("youtube-summarizer:app", host="127.0.0.1", port=8001, reload=True)
