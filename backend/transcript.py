@@ -7,6 +7,7 @@ import os
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
+API_KEY = "YOUR_KEY"
 
 def sumarry_key_points_ai(text):
     client = genai.Client(api_key=API_KEY)
