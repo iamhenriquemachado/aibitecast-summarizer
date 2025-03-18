@@ -30,7 +30,7 @@ async def process_youtube_url(url: str):
 
     try:
         # Get the transcription and clean the text
-        transcription = youtube_transcript_video(url)
+        transcription = youtube_transcript_video(url)  # Now using yt-dlp
         cleaned_text = clean_transcript(transcription)
         
         if not cleaned_text:
