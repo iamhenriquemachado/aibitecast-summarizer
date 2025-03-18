@@ -1,9 +1,12 @@
 from google import genai
-import os
 import json
 import re
+from dotenv import load_dotenv
+import os
 
-API_KEY = "AIzaSyAXdFUnoFkwcCyGEEJD1hbLwkxYm0_Ie6E"
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
+
 
 def sumarry_key_points_ai(text):
     client = genai.Client(api_key=API_KEY)
