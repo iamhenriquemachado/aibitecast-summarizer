@@ -10,15 +10,6 @@ def extract_video_id(youtube_url):
     return match.group(1) if match else None
 
 
-# Use oEmbed YouTube API to check if a video exists
-def check_youtube_video_exists(video_id):
-    """Checks if a YouTube video exists using the oEmbed API."""
-    url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
-    response = requests.get(url)
-
-    return response.status_code != 404  # Returns True if video exists, False otherwise
-
-
 # Get subtitle and transcript the video in a string
 def youtube_transcript_video(url):
     video_id = extract_video_id(url)
@@ -28,7 +19,7 @@ def youtube_transcript_video(url):
     return transcript
 
 
-# Clean the trascripted text from YouTube subtitles 
+# Clean the transcribed text from YouTube subtitles
 def clean_transcript(text):
 
     # Time Format
@@ -46,4 +37,4 @@ def clean_transcript(text):
     text = re.sub(r'([a-zA-Z0-9])\.([a-zA-Z0-9])', r'\1. \2', text)  # Fix spacing after periods
     text = re.sub(r'([a-zA-Z0-9])([,.?!])([a-zA-Z0-9])', r'\1\2 \3', text)  # Add space after punctuation
 
-    return text 
+    return text
