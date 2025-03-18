@@ -1,8 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, HttpUrl
-from typing import Optional
-from helpers import check_youtube_video_exists, clean_transcript, extract_video_id, youtube_transcript_video
+from pydantic import BaseModel
+from helpers import clean_transcript, extract_video_id, youtube_transcript_video
 from transcript import sumarry_key_points_ai
 
 app = FastAPI()
@@ -16,7 +15,6 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-
 class UserYoutubeUrl(BaseModel):
     youtube_url: str
 
@@ -28,12 +26,6 @@ async def process_youtube_url(url: str):
     if not video_id:
         raise HTTPException(
             status_code=400, detail="Incorrect YouTube URL. Please check."
-        )
-
-    # Check if the video exists on YouTube
-    if not check_youtube_video_exists(video_id):
-        raise HTTPException(
-            status_code=404, detail="YouTube video not found or unavailable."
         )
 
     try:
