@@ -10,7 +10,7 @@ app = FastAPI()
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://devutilities.vercel.app", "http://localhost:3000", "*"],  
+    allow_origins=["http://localhost:3000", "*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
@@ -87,4 +87,4 @@ def read_root():
 # Start server
 if __name__ == "__main__":
     import uvicorn 
-    uvicorn.run("youtube-summarizer:app", host="127.0.0.1", port=8001, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8001, reload=True)
