@@ -3,7 +3,7 @@ import os
 import json
 import re
 
-API_KEY = "AIzaSyAXdFUnoFkwcCyGEEJD1hbLwkxYm0_Ie6E"
+API_KEY = "YOUR_KEY"
 
 def sumarry_key_points_ai(text):
     client = genai.Client(api_key=API_KEY)
