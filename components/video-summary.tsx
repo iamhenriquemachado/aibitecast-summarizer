@@ -25,6 +25,8 @@ export function VideoSummary({ summary }: VideoSummaryProps) {
     setTimeout(() => setCopied(false), 2000)
   }
 
+  
+
   return (
     <div className="w-full animate-fade-in-up">
       <Card className="overflow-hidden border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm hover:shadow-lg transition-shadow duration-300">
